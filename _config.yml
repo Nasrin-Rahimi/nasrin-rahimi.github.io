@@ -11,7 +11,7 @@ github_username:  Nasrin-Rahimi
 linkedin_username: nasrin-rahimi
 
 # Build settings
-theme: midnight
+theme: minima
 plugins:
   - jekyll-feed
 
