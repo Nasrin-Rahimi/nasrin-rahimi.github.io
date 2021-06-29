@@ -21,38 +21,38 @@ A has_many :through association is often used to set up a many-to-many connectio
 
 For creating many-to-many connection between User and Video, I created a reviews where users write reviews om videos. The relevant association declarations is look like this:
 
-class User < ApplicationRecord
-  has_many :reviews
-  has_many :videos, through: :reviews
-end
+    class User < ApplicationRecord
+      has_many :reviews
+      has_many :videos, through: :reviews
+    end
 
-class Review < ApplicationRecord
-  belongs_to :user
-  belongs_to :video
-end
+    class Review < ApplicationRecord
+      belongs_to :user
+      belongs_to :video
+    end
 
-class Video < ApplicationRecord
-  has_many :reviews
-  has_many :users, through: :reviews
-end
+    class Video < ApplicationRecord
+      has_many :reviews
+      has_many :users, through: :reviews
+    end
     
 The corresponding migration is look like this:
 
-class CreateReviews < ActiveRecord::Migration[6.0]
-  def change
-    create_table :reviews do |t|
-      t.integer :rating
-      t.text :description
-      t.references :user, foreign_key: true
-      t.references :video, foreign_key: true
-      t.datetime :created_at
+    class CreateReviews < ActiveRecord::Migration[6.0]
+      def change
+        create_table :reviews do |t|
+          t.integer :rating
+          t.text :description
+          t.references :user, foreign_key: true
+          t.references :video, foreign_key: true
+          t.datetime :created_at
+        end
+      end
     end
-  end
-end
     
 The collection of join models can be managed via the has_many association methods. For example, if you assign:
 
-user.reviews = reviews
+    user.reviews = reviews
     
 Then new join models are automatically created for the newly associated objects. If some that existed previously are now missing, then their join rows are automatically deleted.
 
@@ -61,24 +61,24 @@ Automatic deletion of join models is direct, no destroy callbacks are triggered.
 A has_and_belongs_to_many association creates a direct many-to-many connection with another model, with no intervening model. This association indicates that each instance of the declaring model refers to zero or more instances of another model. 
 For creating many-to-many connection between Video and Genre, I created a genres_videos where a genre having many videos and each video appearing in many genres. The models declares this way:
     
-class Genre < ApplicationRecord
-  has_and_belongs_to_many :videos
-end
+    class Genre < ApplicationRecord
+      has_and_belongs_to_many :videos
+    end
 
-class Video < ApplicationRecord
-  has_and_belongs_to_many :genres
-end
+    class Video < ApplicationRecord
+      has_and_belongs_to_many :genres
+    end
     
 The corresponding migration is look like this:
 
-class CreateGenresVideosJoinTable < ActiveRecord::Migration[6.0]
-  def change
-     create_table :genres_videos, id: false do |t|
-      t.belongs_to :video
-      t.belongs_to :genre
+    class CreateGenresVideosJoinTable < ActiveRecord::Migration[6.0]
+      def change
+         create_table :genres_videos, id: false do |t|
+          t.belongs_to :video
+          t.belongs_to :genre
+        end
+      end
     end
-  end
-end
 
 Choosing Between has_many :through and has_and_belongs_to_many
 
