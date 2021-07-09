@@ -5,7 +5,7 @@ date:       2021-07-09 08:26:55 -0400
 permalink:  what-is-dom
 ---
 
-One definition is: The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.
+The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.
 
 Let's view an html document in the browser(chrome is the best)
     
@@ -23,6 +23,24 @@ Wait a minute, what you see as a DOM is like to the HTML you see with view-sourc
 
 When is the DOM different than the HTML?
 One possibility is: there are mistakes in your HTML and the browser has fixed them for you. For example if you have a <table> element in your HTML and leave out the required <tbody> element. The browser will just insert that <tbody> for you. It will be there in the DOM, so you’ll be able to find it with JavaScript and style it with CSS, even though it’s not in your HTML.
+
+In the DOM, all parts of the document, such as elements, attributes, text, etc. are organized in a hierarchical tree-like structure; consisting of parents and children. These individual parts of the document are known as nodes.
+
+DOM nodes most often have a starting tag and an ending tag. Because of this, something else could nest inside. This inner node is called a child node. The outer node is called a parent node.
+
+    <body>    => parent node
+        <main>   => parent node for p node and child node for body node.
+            <p>I am a nested paragraph, inside the main node, inside the body!</p>
+        </main>
+    </body>
+
+Some nodes only have a starting tag. Those are called self-closing elements. These elements do not have any content nested inside of them. They are called void elements. Void elements cannot be parent nodes.
+          
+    <img src="https://media.giphy.com/media/3o6MbkZSYy4mI3gLYc/giphy.gif" alt="A policeman" >
+
+JavaScript / DOM Relationship
+
+JavaScript originally designed to do a type of programming called Document-Object Model (DOM) programming. JavaScript changes are made through the DOM. The DOM only knows how to be spoken to in JavaScript. JavaScript and the DOM have been there, together, since the beginning.
 
 To read more about DOM:
     
