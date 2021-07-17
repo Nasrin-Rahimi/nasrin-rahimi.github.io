@@ -64,7 +64,7 @@ We can do a custome error handling by creating a custome error object. By doing 
         }
     })
 
-For details errors in javascript, see MDN’s Page on Errors with below link:
+For more detail on errors in javascript, see MDN’s Page on Errors with below link:
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
 
