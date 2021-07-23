@@ -57,6 +57,38 @@ A function has access to all variables and functions declared in its outer scope
 
 The scope chain only goes in one direction. An outer scope does not have access to things declared in an inner scope. 
     
+When our JavaScript code is run in the browser, the JavaScript engine actually makes two separate passes over our code :
+        
+- Compilation Phase
+- Execution Phase
+    
+In Compilation Phase the engine steps through our code line-by-line:
+        
+When it reaches a variable declaration:
 
+- Allocates memory and sets up a reference to the variable's identifier (myVar).
+
+When the engine encounters a function declaration, it does three things:
+        
+- Allocates memory and sets up a reference to the function's' identifier (`myFunc`)
+ 
+- Creates a new execution context with a new scope.
+ 
+- Adds a reference to the parent scope (the outer environment) to the scope
+  chain, making variables and functions declared in the outer environment
+  available in the new function's' scope.
+        
+In Execution Phase, The JavaScript engine again steps through our code line-by-line, but this time it actually runs our code, assigning values to variables and invoking functions.
+
+For example if we have:
+
+    const myVar = 42;
+    myVar;    // => 42
+
+During the compilation phase, a reference to the identifier myVar is stored in memory. The variable isn't yet assigned a value, and the second line (myVar;) is skipped over entirely because it isn't a declaration.
+
+During the execution phase, the value 42 is assigned to myVar. When the engine reaches the second line, it sees the identifier myVar and resolves it to a value through a process known as identifier resolution. The engine first checks the current scope to see if myVar has been declared in it. If it finds no declaration for myVar in the current scope, the engine then starts moving up the scope chain, checking the parent scope and then the parent scope's parent scope and so on, until it finds a matching declared identifier or reaches the global scope. If the engine traverses all the way up to the global scope and still can't find a match, it will throw a ReferenceError and inform you that the identifier is not declared anywhere in the scope chain.
+    
+Thanks for reading!
     
         
