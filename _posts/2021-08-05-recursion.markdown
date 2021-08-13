@@ -32,3 +32,5 @@ For example, the function below is recursive:
     // 1
 
 You can see that in the body of the function, that the function calls itself. That part of the function is called the recursive call. You can also see that the function has a stopping point, which we call the base case. If there were no stopping point, the function would just keep going on forever. 
+
+Thanks for reading!
