@@ -31,7 +31,7 @@ Ok, now lets talk about how we can sort a collection of unsorted elements. For e
 
     let unsortedArray = [5, 6, -1, 1, 3];
 
-We can find the Minimum given our original array, and remove that element. Now with the new array, find the Minimum again, and remove that element, and keep doing this until our unsortedArray is empty. Then push these removed elements into an empty array one by one. At the end we should have a sorted array.
+We can find the Minimum given our original array, and remove that element. Now with the new array, find the minimum again, and remove that element, and keep doing this until our unsorted array is empty. Then push these removed elements into an empty array one by one. At the end we should have a sorted array.
 
     function findAndRemoveMin(array) {
         let min = array[0];
