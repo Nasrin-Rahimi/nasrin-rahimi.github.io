@@ -66,6 +66,8 @@ Note: It seems that each time we call findAndRemoveMin on a smaller array, so th
 
 On average the cost of findAndRemoveMin is (1/2)n. This is because the first time the cost is n, and the last time it is zero. With big O we don’t consider the multipliers, so the cost of findAndRemoveMin is still n, and therefore the cost of selection sort is n^2.
 
+Thanks for reading!
+
 
 
 
