@@ -28,6 +28,19 @@ That's so much typing! There are much, much better ways to keep organize data in
 
 Create Arrays
 
+An Array is a list, with the items listed in a particular order, surrounded by square brackets ([]):
+
+    ['This', 'is', 'an', 'array', 'of', 'strings.'];
+    // => ["This", "is", "an", "array", "of", "strings."] 
+
+The members or elements in an Array can be data of any type in JavaScript:
+
+    ['Hello, world!', 42, null, NaN];
+    // => ["Hello, world!", 42, null, NaN] 
+
+Elements in arrays will always appear in the same order. The Array [1, 2, 3] is different from the Array [3, 2, 1].
+
+
 
 
 
