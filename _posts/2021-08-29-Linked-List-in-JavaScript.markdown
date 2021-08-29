@@ -255,6 +255,7 @@ Output:
     10 20 60 40
 
 To read more about Linked List in JavaScript:
+
 https://www.geeksforgeeks.org/implementation-linkedlist-javascript/
 
 Thanks for reading!
