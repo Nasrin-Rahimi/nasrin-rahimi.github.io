@@ -86,6 +86,7 @@ In order to add an element at the given index of the list we consider three cond
             let node = new Node(element);
 
             if(index == 0) {
+                node.next = this.head;
                 this.head = node;
             } else {
                 let curr = this.head;
