@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Class Methods in Ruby"
+title:      "Class Method in Ruby"
 date:       2021-10-19 03:26:55 -0400
 permalink:  class-methods-in-ruby
 ---
@@ -13,7 +13,6 @@ For example, let's say we have a class, Person. Every individual person instance
 
         def initialize(name)
             @name = name
-            @@all << self
         end
 
         def name=(name)
@@ -28,9 +27,44 @@ For example, let's say we have a class, Person. Every individual person instance
 
 Here we have an instance variable, @name, which can be set equal to a value using the name=() method, a setter method. Then, we have a getter method name that returns the value of @name. Now, we can execute the following:
 
-person = Person.new
-person.name = "Nasrin"
-person.name
-  # => "Nasrin" 
+    person = Person.new
+    person.name = "Nasrin"
+    person.name
+    # => "Nasrin" 
 
-Let's say we wanted to keep a counter for how many person we had in our system.
+Let's say we wanted to keep a track of people we had in our system. Now we should have a method in class scope not in instance scope. 
+
+    class Person
+        @@all = []
+
+        def initialize(name)
+            @name = name
+            @@all << self
+        end
+
+        def name=(name)
+            @name = name
+        end
+
+        def name
+            @name
+        end
+
+        def self.all
+            @@all
+        end
+    end 
+
+Now, whenever we initialize an instance a Person with Person.new, that person will add to @@all array, and Person.all returns that array.
+
+    nasrin = Person.new("Nasrin")
+    fariborz = Person.new("Fariborz")
+
+    Person.all #=> [#<Person @name="Nasrin">,
+    #<Person @name="Fariborz">] 
+
+To read more about class method in ruby, check below link: 
+
+https://www.geeksforgeeks.org/ruby-class-method-and-variables/
+
+Thanks for reading!
