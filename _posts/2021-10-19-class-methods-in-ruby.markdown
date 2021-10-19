@@ -63,6 +63,14 @@ Now, whenever we initialize an instance a Person with Person.new, that person wi
     Person.all #=> [#<Person @name="Nasrin">,
     #<Person @name="Fariborz">] 
 
+Ok, for finding a specific person by name given the Person model, we can define another class method like below:
+
+    def self.find_by_name(name)
+        @@all.find{|person| person.name == name}
+    end
+
+We call class methods like Person.find_by_name 'finders'. Finder class methods are responsible for finding instances based on some property or condition.
+
 To read more about class method in ruby, check below link: 
 
 https://www.geeksforgeeks.org/ruby-class-method-and-variables/
